@@ -1,5 +1,6 @@
 body {
   font-family: "Poppins";
+  background: #000;
 }
 
 .cabecalho {
@@ -12,25 +13,52 @@ body {
 
 .cabecalho .logo {
   width: 65px;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  border-radius: 30px;
 }
 
 .cabecalho .menu {
   display: flex;
-  align-items: center;
-  height: 100%;
-}
+  }
 
 .cabecalho nav li a {
-  font-weight: bold;
-  color: #131c54;
-  font-size: 25px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  transition: 0.2s;
+  display: flex;
+  width: 200px;
+  height: 60px;
+  justify-content: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  border-radius: 30px;
 }
 
 .cabecalho nav li a:hover {
-  background-color: #318c44;
+  animation: animate 8s linear infinite;
 }
 
 .container {
@@ -54,19 +82,61 @@ body {
 }
 
 .container .botao-trailer {
-  background-color: #131c54;
-  color: #318c44;
-  padding: 15px;
+   width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
   font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
   text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  border-radius: 30px;
   transition: 0.5s all ease-in-out;
 }
 
 .container .botao-trailer:hover {
   transform: scale(1.1);
+  animation: animate 8s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+.container .botao-trailer:before {
+  content: "";
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5%;
+}
+.container .botao-trailer:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
 }
 
 .fundo-video {
@@ -117,7 +187,7 @@ background: linear-gradient(0deg, rgba(241,39,17,1) 0%, rgba(134,64,41,0.6755952
 }
 
 .fechar-modal {
-  background-color: #ffffff;
+  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
   color: #f03a17;
   font-weight: bold;
   font-size: 20px;
