@@ -12,7 +12,7 @@ body {
 }
 
 .cabecalho .logo {
-  width: 65px;
+  width: 80px;
   background: linear-gradient(
     90deg,
     yellow,
@@ -24,7 +24,7 @@ body {
     yellow
   );
   background-size: 400%;
-  border-radius: 30px;
+  border-radius: 50px;
 }
 
 .cabecalho .menu {
