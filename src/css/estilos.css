@@ -1,11 +1,22 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Poppins";
-  background: #000;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000000;
+  font-family: "Poppins", sans-serif;
+}
+
+body.modal-aberto {
+  overflow: hidden;
 }
 
 .cabecalho {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 30px;
   max-width: 1440px;
   margin: 0 auto;
@@ -13,6 +24,7 @@ body {
 
 .cabecalho .logo {
   width: 80px;
+  height: auto;
   background: linear-gradient(
     90deg,
     yellow,
@@ -29,20 +41,23 @@ body {
 
 .cabecalho .menu {
   display: flex;
-  }
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
 
-.cabecalho nav li a {
-  display: flex;
-  width: 200px;
-  height: 60px;
+.cabecalho nav li a,
+.container .botao-trailer {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
   justify-content: center;
-  line-height: 60px;
-  color: #fff;
-  font-size: 18px;
+  border: 0;
+  color: #111827;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
-  text-decoration: none;
-  font-family: sans-serif;
-  box-sizing: border-box;
   background: linear-gradient(
     90deg,
     yellow,
@@ -57,153 +72,169 @@ body {
   border-radius: 30px;
 }
 
-.cabecalho nav li a:hover {
+.cabecalho nav li a {
+  min-width: 190px;
+  padding: 0 20px;
+}
+
+.cabecalho nav li a:hover,
+.container .botao-trailer:hover {
   animation: animate 8s linear infinite;
+}
+
+.cabecalho a:focus-visible,
+.botao-trailer:focus-visible,
+.fechar-modal:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
 }
 
 .container {
   max-width: 1440px;
+  min-height: calc(100vh - 140px);
   margin: 0 auto;
+  padding: 0 30px 30px;
   display: flex;
   align-items: center;
-  height: calc(100vh - 162px);
-  padding: 0 30px 30px;
+  gap: 30px;
+}
+
+.container .informacoes {
+  flex: 1;
 }
 
 .container .imagem-titulo {
+  display: block;
+  width: 100%;
   max-width: 500px;
+  height: auto;
 }
 
 .container .descricao {
+  width: 100%;
+  max-width: 650px;
+  margin: 20px 0;
   color: #ffffff;
-  width: 85%;
   font-size: 18px;
-  margin: 10px 10px;
 }
 
 .container .botao-trailer {
-   width: 200px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  color: #fff;
-  font-size: 18px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-family: sans-serif;
-  box-sizing: border-box;
-  background: linear-gradient(
-    90deg,
-    yellow,
-    orange,
-    red,
-    violet,
-    purple,
-    blue,
-    yellow
-  );
-  background-size: 400%;
-  border-radius: 30px;
-  transition: 0.5s all ease-in-out;
+  min-width: 200px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .container .botao-trailer:hover {
-  transform: scale(1.1);
-  animation: animate 8s linear infinite;
+  transform: scale(1.06);
+}
+
+.container .zig {
+  width: 48%;
+  max-width: 665px;
+  height: auto;
 }
 
 @keyframes animate {
   0% {
     background-position: 0%;
   }
+
   100% {
     background-position: 400%;
   }
 }
-.container .botao-trailer:before {
-  content: "";
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  z-index: -1;
-  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
-  background-size: 400%;
-  border-radius: 40px;
-  opacity: 0;
-  transition: 0.5%;
-}
-.container .botao-trailer:hover:before {
-  filter: blur(20px);
-  opacity: 1;
-  animation: animate 8s linear infinite;
-}
 
 .fundo-video {
-  position: absolute;
+  position: fixed;
+  inset: 0;
   z-index: -1;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  
 }
 
 .fundo-video .video {
-  height: 100vh;
-  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .fundo-video::after {
   content: "";
-  height: 100vh;
-  width: 100vw;
   position: absolute;
-  top: 0;
-  left: 0;
-  background: rgb(241,39,17);
-background: linear-gradient(0deg, rgba(241,39,17,1) 0%, rgba(134,64,41,0.6755952380952381) 49%);
-  }
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(241, 39, 17, 1) 0%,
+    rgba(134, 64, 41, 0.68) 49%
+  );
+}
 
 .modal {
   position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(52, 52, 50, 0.749);
+  background-color: rgba(52, 52, 50, 0.8);
+  opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
 }
 
 .conteudo-modal {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
-  border-radius: 5px;
-  gap: 15px;
+}
+
+.janela-modal {
+  position: relative;
+  width: min(640px, calc(100vw - 60px));
+}
+
+.titulo-modal {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .fechar-modal {
-  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
-  color: #f03a17;
-  font-weight: bold;
-  font-size: 20px;
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
-  text-align: center;
-  cursor: pointer;
+  height: 40px;
+  border: 3px solid #f03a17;
   border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 }
 
 .modal iframe {
-  border-width: 0;
-  width: 640px;
-  height: 360px;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 100px);
+  border: 0;
+  aspect-ratio: 16 / 9;
 }
 
 .modal.aberto {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }

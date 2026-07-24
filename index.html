@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Landing page responsiva inspirada na série Zig e Sharko."
+    />
 
     <link
       rel="shortcut icon"
@@ -28,13 +32,13 @@
   </head>
   <body>
     <div class="fundo-video">
-      <video class="video" autoplay loop muted>
+      <video class="video" autoplay loop muted playsinline>
         <source src="./src/video/Zig e Sharko.mp4" type="video/mp4" />
       </video>
     </div>
 
     <header class="cabecalho">
-      <a>
+      <a href="#inicio" aria-label="Ir para o início">
         <img
           class="logo"
           src="./src/imagens/61Qd4VwSKES._AC_UL900_SR615_900_-removebg-preview.png"
@@ -44,41 +48,62 @@
       <nav>
         <ul class="menu">
           <li>
-            <a href="https://www.netflix.com/br/title/70286809" target="_blank" rel="noopener noreferrer">Assista na netflix</a>
+            <a href="https://www.netflix.com/br/title/70286809" target="_blank" rel="noopener noreferrer">Assista na Netflix</a>
           </li>
           <li>
-            <a href="https://www.youtube.com/@ZigeSharko" target="_blank" rel="noopener noreferrer">Canal do Youtube</a>
+            <a href="https://www.youtube.com/@ZigeSharko" target="_blank" rel="noopener noreferrer">Canal do YouTube</a>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="container">
+    <main class="container" id="inicio">
       <div class="informacoes">
         <img
           class="imagem-titulo"
           src="./src/imagens/zig-et-sharko-logo-xilam-animation-removebg-preview.png"
-          alt="imagem do título da série"
+          alt="Zig e Sharko"
         />
-        <p class="descricao">
+        <p class="descricao" id="detalhes">
           Zig é uma hiena faminta que vive em uma ilha vulcânica; ele sempre tenta devorar Marina, uma bela sereia que vive no recife próximo, mas nunca consegue, pois seu amigo, o tubarão Sharko, sempre a protege. Zig sempre é ajudado pelo caranguejo ermitão Bernie.
         </p>
-        <button class="botao-trailer">Veja o trailer</button>
+        <button class="botao-trailer" type="button" aria-haspopup="dialog">
+          Veja o trailer
+        </button>
       </div>
-      <img class="zig" src="./src/imagens/2734654-removebg-preview.png" />
+      <img
+        class="zig"
+        src="./src/imagens/2734654-removebg-preview.png"
+        alt="Zig, Sharko, Marina e Bernie"
+      />
 
-      <div class="modal">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal"
+        aria-hidden="true"
+        inert
+      >
         <div class="conteudo-modal">
-          <span class="fechar-modal">X</span>
-          <iframe
-            id="video"
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/TUnkTEK9C4U"
-            title="Trailer oficial"
-            frameborder="1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div class="janela-modal">
+            <h2 id="titulo-modal" class="titulo-modal">Trailer oficial</h2>
+            <button
+              class="fechar-modal"
+              type="button"
+              aria-label="Fechar trailer"
+            >
+              &times;
+            </button>
+            <iframe
+              id="video"
+              width="560"
+              height="315"
+              data-src="https://www.youtube.com/embed/TUnkTEK9C4U"
+              title="Trailer oficial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </main>
