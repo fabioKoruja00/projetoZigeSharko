@@ -42,7 +42,7 @@ async function run() {
         try {
           await page.goto(url + route, { waitUntil: 'load' });
           assert.ok(await page.locator('main').count(), 'main ausente');
-          assert.ok(await page.locator('h1').count(), 'h1 ausente');
+          assert.ok(await page.locator('main img').count(), 'titulo ilustrado ausente');
           const size = await page.evaluate(() => ({
             doc: document.documentElement.scrollWidth,
             body: document.body.scrollWidth, window: innerWidth,
