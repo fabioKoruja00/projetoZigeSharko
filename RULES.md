@@ -9,3 +9,7 @@
 - **Conventional Commits:** preservar prefixos técnicos como `feat`, `fix`, `docs`, `test`, `chore`, `ci` e `refactor`, mas escrever a descrição após `:` em português. Exemplo: `docs(governanca): padronizar títulos em português`.
 - **Pendências:** títulos das `Issues` em português, mantendo níveis de severidade e nomes técnicos; quando adotado no repositório, usar `O que fazer` e `Pronto quando` na descrição.
 - **Histórico:** não reescrever `Commits` nem mensagens automáticas de `Merge` já publicados apenas para traduzir texto. Corrigir títulos descritivos editáveis ainda abertos e seguir a regra nas próximas contribuições.
+
+## Dependência, componente ou ferramenta nova
+
+Antes de instalar qualquer dependência, componente ou ferramenta, mandar mensagem à sessão **Sistema de Monitoramento (VM)** com nome, versão, tipo, para que serve e licença, e esperar a resposta. Ela avalia se dá para compartilhar: o que servir a outros sites e sistemas entra no runner (`/opt/ci-tools`) para todos; o resto fica no manifesto e no lock deste repositório. Nenhuma dependência volta de versão; alerta sem correção na versão atual espera o Dependabot. Ferramenta que ninguém mais usa sai sozinha pela limpeza do runner.
