@@ -16,4 +16,4 @@ Antes de instalar qualquer dependência, componente ou ferramenta, mandar mensag
 
 ## Merge de PR
 
-Toda PR entra na branch padrão em **squash** (`gh pr merge --squash --delete-branch`): um commit só por PR, sem merge commit.
+Toda PR entra na branch padrão em **squash** com mensagem limpa (`gh pr merge N --squash --delete-branch --subject "<título> (#N)" --body "<nota e Closes>"`): um commit só por PR, sem merge commit e sem a lista de commits da branch.
